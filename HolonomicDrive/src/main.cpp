@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       C:\Users\mfran                                            */
+/*    Author:       Michael F.                                                */
 /*    Created:      Thu Aug 06 2020                                           */
 /*    Description:  V5 project                                                */
 /*                                                                            */
