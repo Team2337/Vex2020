@@ -10,10 +10,10 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// frontLeft            motor         1               
-// frontRight           motor         2               
-// backLeft             motor         3               
-// backRight            motor         4               
+// LeftFrontMotor       motor         1               
+// RightFrontMotor      motor         2               
+// LeftBackMotor        motor         3               
+// RightBackMotor       motor         4               
 // Controller1          controller                    
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -49,33 +49,33 @@ void usercontrol(void) {
     if(abs(Controller1.Axis1.position(percent)) < limiter){
       if(abs(Controller1.Axis3.position(percent)) > limiter && abs(Controller1.Axis4.position(percent)) < limiter + 1){
         //Move forwards/backwards
-        frontLeft.setVelocity(Controller1.Axis3.position(percent), percent);
-        frontRight.setVelocity(Controller1.Axis3.position(percent), percent);
-        backLeft.setVelocity(-Controller1.Axis3.position(percent), percent);
-        backRight.setVelocity(-Controller1.Axis3.position(percent), percent);
+        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
+        RightFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
+        LeftBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
+        RightBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
       }
       if(abs(Controller1.Axis3.position(percent)) < limiter + 1 && abs(Controller1.Axis4.position(percent)) > limiter){
         //Move left/right
-        frontLeft.setVelocity(Controller1.Axis3.position(percent), percent);
-        frontRight.setVelocity(-Controller1.Axis3.position(percent), percent);
-        backLeft.setVelocity(Controller1.Axis3.position(percent), percent);
-        backRight.setVelocity(-Controller1.Axis3.position(percent), percent);
+        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
+        RightFrontMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
+        LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
+        RightBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
       }
       if((Controller1.Axis3.position(percent) > limiter && Controller1.Axis4.position(percent) > limiter) || (Controller1.Axis3.position(percent) < -limiter && Controller1.Axis4.position(percent) < -limiter)){
         //Move diagonally (up and right or down and left)
-        frontLeft.setVelocity(Controller1.Axis3.position(percent), percent);
-        backLeft.setVelocity(Controller1.Axis3.position(percent), percent);
+        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
+        LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
       }
       if((Controller1.Axis3.position(percent) > limiter && Controller1.Axis4.position(percent) < -limiter) || (Controller1.Axis3.position(percent) < -limiter && Controller1.Axis4.position(percent) > limiter)){
         //Move diagonally (up and left or down and right)
-        frontLeft.setVelocity(Controller1.Axis3.position(percent), percent);
-        backLeft.setVelocity(Controller1.Axis3.position(percent), percent);
+        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
+        LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
       }
     } else {
-      frontLeft.setVelocity(Controller1.Axis1.position(percent), percent);
-      frontRight.setVelocity(Controller1.Axis1.position(percent), percent);
-      backLeft.setVelocity(Controller1.Axis1.position(percent), percent);
-      backRight.setVelocity(Controller1.Axis1.position(percent), percent);
+      LeftFrontMotor.setVelocity(Controller1.Axis1.position(percent), percent);
+      RightFrontMotor.setVelocity(Controller1.Axis1.position(percent), percent);
+      LeftBackMotor.setVelocity(Controller1.Axis1.position(percent), percent);
+      RightBackMotor.setVelocity(Controller1.Axis1.position(percent), percent);
     }
     
 
