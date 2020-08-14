@@ -14,7 +14,14 @@
 // RightFrontMotor      motor         2               
 // LeftBackMotor        motor         3               
 // RightBackMotor       motor         4               
+// ElevatorMotor        motor         5               
+// UpperLeftArm         motor         6               
+// LowerLeftArm         motor         7               
+// UpperRightArm        motor         8               
+// LowerRightArm        motor         9               
+// ShooterMotor         motor         10              
 // Controller1          controller                    
+// Controller2          controller                    
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -72,6 +79,7 @@ void usercontrol(void) {
         LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
       }
     } else {
+      //Spin in place
       LeftFrontMotor.setVelocity(Controller1.Axis1.position(percent), percent);
       RightFrontMotor.setVelocity(Controller1.Axis1.position(percent), percent);
       LeftBackMotor.setVelocity(Controller1.Axis1.position(percent), percent);
