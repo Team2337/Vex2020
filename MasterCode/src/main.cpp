@@ -1,13 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/*                                                                            */
-/*    Module:       main.cpp                                                  */
-/*    Author:       Zayd A. , Michael F. , Nicholas S. , Owen P.              */
-/*    Created:      Thu Sep 26 2019                                           */
-/*    Description:  Team 2337B Code                                           */
-/*    Last Updated:  8/6/2020                                                 */
-/*                                                                            */
-/*----------------------------------------------------------------------------*/
-
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
@@ -22,7 +12,6 @@
 // LowerRightArm        motor         9               
 // Controller1          controller                    
 // Controller2          controller                    
-// ShooterMotor         motor         10              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -66,6 +55,17 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+
+  //Current Autonomous; Refer to Auton Mappings
+  int CurrentAuton = 1; 
+
+  if(CurrentAuton == 1) {
+    // Will play Auton 1
+  }
+  if(CurrentAuton == 2) {
+    //Will play Auton 2
+  }
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -79,10 +79,20 @@ void autonomous(void) {
 /*---------------------------------------------------------------------------*/
 
 void usercontrol(void) {
+
+
+   while (true) {          
+        LeftBackMotor.spin(directionType::fwd, (Controller1.Axis3.value() + Controller1.Axis4.value())/2, velocityUnits::pct); //(Axis3+Axis4)/2;
+        LeftFrontMotor.spin(directionType::fwd, (Controller1.Axis3.value() + Controller1.Axis4.value())/2, velocityUnits::pct); //(Axis3+Axis4)/2;
+        RightBackMotor.spin(directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value())/2, velocityUnits::pct);//(Axis3-Axis4)/2;      
+        RightFrontMotor.spin(directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value())/2, velocityUnits::pct);//(Axis3-Axis4)/2;
+    } 
+  // CURRENTLY NOT BEING USED
+
   // User control code here, inside the loop
 
   // Prevents drifting
-  int limiter = 10;
+  /*int limiter = 10;
 
   while (1) {
     if(abs(Controller1.Axis1.position(percent)) < limiter){
@@ -119,56 +129,10 @@ void usercontrol(void) {
     
 
     wait(limiter, msec); // Sleep the task for a short amount of time to prevent wasted resources.
+    
   }
 
-  if (Controller1.ButtonA.pressing() == true){
-      ShooterMotor.setVelocity(100, percent);
-    }
-  if (Controller1.ButtonA.pressing() == false){
-      ShooterMotor.setVelocity(0, percent);
-    }
-
-    if (Controller1.ButtonL1.pressing()) {
-        UpperLeftArm.spin(forward);
-        Controller1LeftShoulderControlMotorsStopped = false;
-      } else if (Controller1.ButtonL2.pressing()) {
-        UpperLeftArm.spin(reverse);
-        Controller1LeftShoulderControlMotorsStopped = false;
-      } else if (!Controller1LeftShoulderControlMotorsStopped) {
-        UpperLeftArm.stop();
-        Controller1LeftShoulderControlMotorsStopped = true;
-      }
-      if (Controller1.ButtonL1.pressing()) {
-        UpperRightArm.spin(forward);
-        Controller1RightShoulderControlMotorsStopped = false;
-      } else if (Controller1.ButtonL2.pressing()) {
-        UpperRightArm.spin(reverse);
-        Controller1RightShoulderControlMotorsStopped = false;
-      } else if (!Controller1RightShoulderControlMotorsStopped) {
-        UpperRightArm.stop();
-        Controller1RightShoulderControlMotorsStopped = true;
-      }
-         //lower motors
-          if (Controller1.ButtonL1.pressing()) {
-        LowerLeftArm.spin(forward);
-        Controller1LeftShoulderControlMotorsStopped = false;
-      } else if (Controller1.ButtonL2.pressing()) {
-        LowerLeftArm.spin(reverse);
-        Controller1LeftShoulderControlMotorsStopped = false;
-      } else if (!Controller1LeftShoulderControlMotorsStopped) {
-        LowerLeftArm.stop();
-        Controller1LeftShoulderControlMotorsStopped = true;
-      }
-      if (Controller1.ButtonL1.pressing()) {
-        LowerRightArm.spin(forward);
-        Controller1RightShoulderControlMotorsStopped = false;
-      } else if (Controller1.ButtonL2.pressing()) {
-        LowerRightArm.spin(reverse);
-        Controller1RightShoulderControlMotorsStopped = false;
-      } else if (!Controller1RightShoulderControlMotorsStopped) {
-        LowerRightArm.stop();
-        Controller1RightShoulderControlMotorsStopped = true;
-    }
+  */
 
 }
 
