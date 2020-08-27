@@ -199,6 +199,24 @@ void usercontrol(void) {
 
   */
 
+  //Elevator
+  if (Controller1.ButtonA.pressing() == true){
+      LeftElevatorMotor.spin(forward, 100, percent);
+      RightElevatorMotor.spin(forward, 100, percent);
+    }
+     else {
+      LeftElevatorMotor.spin(forward, 0, percent);
+      RightElevatorMotor.spin(forward, 0, percent);
+    }
+     if (Controller1.ButtonB.pressing() == true){
+      LeftElevatorMotor.spin(reverse, 100, percent);
+      RightElevatorMotor.spin(reverse, 100, percent);
+    }
+     else {
+      LeftElevatorMotor.spin(reverse, 0, percent);
+      RightElevatorMotor.spin(reverse, 0, percent);
+    }
+
 }
 
 //
