@@ -1,12 +1,30 @@
 # Vex2020
 Team 2337 VEX Team's code.
-## Github Terminology
- Think of a tree, the tree has a stem then has branches.
-   * Organization - The stem of the tree, it holds all of the repositories. In our case, Team 2337
-   * Repository - The branch off of the tree. In our case, 2020 Vex is the repository 
-   * Branch - The branch off of the repository. In our case, Team A and B are branching off. Anything that happens within the branch will only stay in the branch.
-## How to upload your team's code
-Please follow the following steps:
-1. Towards the top left corner, you'll see a dropdown. If the text says 'master', then click on it and find your respective team's letter. If the text says your team's letter, you can skip this step (you're ahead of me :) )
-2. Once you entered your team's branch, click on the dropdown 'Add files' and click 'Upload files'. Find your code name's folder and upload that. If you can't find it, go to your code editor and resave your code by pressing 'Save as' and put it somewhere safe!
-3. Once you upload your code, poof! It's now uploaded in team's branch. This will allow you to access your team's code anywhere!
+## Motor Ports and Names
+- Chassis
+    - LeftBackMotor -> Port 10
+    - LeftFrontMotor -> Port 11
+    - RightBackMotor -> Port 1
+    - RightFrontMotor -> Port 9
+- Elevator
+    - LeftElevatorMotor -> Port 12
+    - RightElevatorMotor -> Port 13
+- Arm
+    - LeftArm -> Port 14
+    - RightArm -> Port 15
+- Intake
+    - IntakeMotor -> Port 16
+## Controls
+- Chassis -> Controller 1
+    - Axis1 -> 45 degree angle movements
+    - Axis3 -> Forwards and backwards movements
+    - Axis4 -> Left and right (sideways) movements
+- Elevator -> Controller 2
+    - ButtonR1 -> Moves balls up in the elevator
+    - ButtonR2 -> Moves balls down in the elevator
+- Arm -> Controller 2
+    - ButtonUp -> Moves arm up
+    - ButtonDown -> Moves arm down
+- Intake -> Controller 2
+    - ButtonL1 -> Intakes balls
+    - ButtonL2 -> Outtakes balls
