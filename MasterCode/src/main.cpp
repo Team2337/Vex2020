@@ -200,7 +200,7 @@ void usercontrol(void) {
   */
 
   //Elevator
-  if (Controller1.ButtonA.pressing() == true){
+  if (Controller1.ButtonR1.pressing() == true){
       LeftElevatorMotor.spin(forward, 100, percent);
       RightElevatorMotor.spin(forward, 100, percent);
     }
@@ -208,7 +208,7 @@ void usercontrol(void) {
       LeftElevatorMotor.spin(forward, 0, percent);
       RightElevatorMotor.spin(forward, 0, percent);
     }
-     if (Controller1.ButtonB.pressing() == true){
+     if (Controller1.ButtonR2.pressing() == true){
       LeftElevatorMotor.spin(reverse, 100, percent);
       RightElevatorMotor.spin(reverse, 100, percent);
     }
