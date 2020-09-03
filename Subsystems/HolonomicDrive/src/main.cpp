@@ -50,30 +50,30 @@ void usercontrol(void) {
   // User control code here, inside the loop
 
   // Prevents drifting
-  int limiter = 10;
+  int threshold = 10;
 
   while (1) {
-    if(abs(Controller1.Axis1.position(percent)) < limiter){
-      if(abs(Controller1.Axis3.position(percent)) > limiter && abs(Controller1.Axis4.position(percent)) < limiter + 1){
+    if(abs(Controller1.Axis1.position(percent)) < threshold){
+      if(abs(Controller1.Axis3.position(percent)) > threshold && abs(Controller1.Axis4.position(percent)) < threshold + 1){
         //Move forwards/backwards
         LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
         RightFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
         LeftBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
         RightBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
       }
-      if(abs(Controller1.Axis3.position(percent)) < limiter + 1 && abs(Controller1.Axis4.position(percent)) > limiter){
+      if(abs(Controller1.Axis3.position(percent)) < threshold + 1 && abs(Controller1.Axis4.position(percent)) > threshold){
         //Move left/right
         LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
         RightFrontMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
         LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
         RightBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
       }
-      if((Controller1.Axis3.position(percent) > limiter && Controller1.Axis4.position(percent) > limiter) || (Controller1.Axis3.position(percent) < -limiter && Controller1.Axis4.position(percent) < -limiter)){
+      if((Controller1.Axis3.position(percent) > threshold && Controller1.Axis4.position(percent) > threshold) || (Controller1.Axis3.position(percent) < -threshold && Controller1.Axis4.position(percent) < -threshold)){
         //Move diagonally (up and right or down and left)
         LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
         LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
       }
-      if((Controller1.Axis3.position(percent) > limiter && Controller1.Axis4.position(percent) < -limiter) || (Controller1.Axis3.position(percent) < -limiter && Controller1.Axis4.position(percent) > limiter)){
+      if((Controller1.Axis3.position(percent) > threshold && Controller1.Axis4.position(percent) < -threshold) || (Controller1.Axis3.position(percent) < -threshold && Controller1.Axis4.position(percent) > threshold)){
         //Move diagonally (up and left or down and right)
         LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
         LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
@@ -87,7 +87,7 @@ void usercontrol(void) {
     }
     
 
-    wait(limiter, msec); // Sleep the task for a short amount of time to prevent wasted resources.
+    wait(threshold, msec); // Sleep the task for a short amount of time to prevent wasted resources.
   }
 }
 //axis 1 and 4: left/right
