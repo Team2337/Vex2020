@@ -2,7 +2,7 @@
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
 /*    Author:       C:\Users\mfran                                            */
-/*    Created:      Thu Aug 27 2020                                           */
+/*    Created:      Thu Sep 03 2020                                           */
 /*    Description:  V5 project                                                */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
@@ -10,9 +10,8 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
+// IntakeMotor          motor         16              
 // Controller1          controller                    
-// LeftArm              motor         14              
-// RightArm             motor         15              
 // Controller2          controller                    
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -45,17 +44,15 @@ void usercontrol(void) {
   int armVel = 50;
 
   while (1) {
-    if(Controller2.ButtonR1.pressing() && !Controller2.ButtonR2.pressing()){
-      //Move arm up if R1 is pressed but not R2
-      LeftArm.setVelocity(armVel, percent);
-      RightArm.setVelocity(armVel, percent);
-    } else if(Controller2.ButtonR2.pressing() && !Controller2.ButtonR1.pressing()){
-      //Move arm down if R2 is pressed but not R1
-      LeftArm.setVelocity(-armVel, percent);
-      RightArm.setVelocity(-armVel, percent);
+    if(Controller2.ButtonL1.pressing() && !Controller2.ButtonL2.pressing()){
+      //Intake if L1 is pressed but not L2
+      IntakeMotor.setVelocity(armVel, percent);
+    } else if(Controller2.ButtonL2.pressing() && !Controller2.ButtonL1.pressing()){
+      //Outtake if L2 is pressed but not L1
+      IntakeMotor.setVelocity(-armVel, percent);
     } else {
-      //Don't move motors
-      LeftArm.setVelocity(0, percent);
+      //Don't intake or outtake
+      IntakeMotor.setVelocity(0, percent);
     }
     
 
