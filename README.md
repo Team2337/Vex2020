@@ -1,5 +1,5 @@
-# Vex2020
-Team 2337 VEX Team's code.
+# Vex2020 Team B
+A guide to VEX team 2337B's code. The MasterCode folder contains the code that will be in the final robot while the Subsystems folder contains each individual system and contains beta code that needs to be tested before it can be in the robot.
 ## Motor Ports and Names
 - Chassis
     - LeftBackMotor -> Port 10
