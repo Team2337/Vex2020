@@ -5,14 +5,14 @@
 // LeftFrontMotor       motor         2               
 // RightBackMotor       motor         3               
 // RightFrontMotor      motor         4               
-// ElevatorMotor        motor         5               
-// UpperLeftArm         motor         6               
-// LowerLeftArm         motor         7               
-// UpperRightArm        motor         8               
-// LowerRightArm        motor         9               
+// LeftElevatorMotor    motor         12              
+// LeftArm              motor         14              
+// RightArm             motor         15              
 // Controller1          controller                    
 // Controller2          controller                    
+// RightElevatorMotor   motor         13              
 // ---- END VEXCODE CONFIGURED DEVICES ----
+
 
 #include "vex.h"
 
