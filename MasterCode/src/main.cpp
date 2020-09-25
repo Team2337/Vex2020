@@ -5,6 +5,62 @@
 // LeftFrontMotor       motor         2               
 // RightBackMotor       motor         3               
 // RightFrontMotor      motor         4               
+// LeftElevatorMotor    motor         5               
+// LeftArm              motor         6               
+// RightArm             motor         7               
+// Controller1          controller                    
+// Controller2          controller                    
+// RightElevatorMotor   motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftBackMotor        motor         1               
+// LeftFrontMotor       motor         2               
+// RightBackMotor       motor         3               
+// RightFrontMotor      motor         4               
+// LeftElevatorMotor    motor         5               
+// LeftArm              motor         6               
+// RightArm             motor         7               
+// Controller1          controller                    
+// Controller2          controller                    
+// RightElevatorMotor   motor         13              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftBackMotor        motor         1               
+// LeftFrontMotor       motor         2               
+// RightBackMotor       motor         3               
+// RightFrontMotor      motor         4               
+// LeftElevatorMotor    motor         5               
+// LeftArm              motor         6               
+// RightArm             motor         15              
+// Controller1          controller                    
+// Controller2          controller                    
+// RightElevatorMotor   motor         13              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftBackMotor        motor         1               
+// LeftFrontMotor       motor         2               
+// RightBackMotor       motor         3               
+// RightFrontMotor      motor         4               
+// LeftElevatorMotor    motor         5               
+// LeftArm              motor         14              
+// RightArm             motor         15              
+// Controller1          controller                    
+// Controller2          controller                    
+// RightElevatorMotor   motor         13              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftBackMotor        motor         1               
+// LeftFrontMotor       motor         2               
+// RightBackMotor       motor         3               
+// RightFrontMotor      motor         4               
 // LeftElevatorMotor    motor         12              
 // LeftArm              motor         14              
 // RightArm             motor         15              

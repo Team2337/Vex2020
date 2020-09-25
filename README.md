@@ -2,18 +2,18 @@
 A guide to VEX team 2337B's code. The MasterCode folder contains the code that will be in the final robot while the Subsystems folder contains each individual system and contains beta code that needs to be tested before it can be in the robot.
 ## Motor Ports and Names
 - Chassis
-    - LeftBackMotor -> Port 10
-    - LeftFrontMotor -> Port 11
-    - RightBackMotor -> Port 1
-    - RightFrontMotor -> Port 9
+    - LeftBackMotor -> Port 1
+    - LeftFrontMotor -> Port 2
+    - RightBackMotor -> Port 3
+    - RightFrontMotor -> Port 4
 - Elevator
-    - LeftElevatorMotor -> Port 12
-    - RightElevatorMotor -> Port 13
+    - LeftElevatorMotor -> Port 5
+    - RightElevatorMotor -> Port 6
 - Arm
-    - LeftArm -> Port 14
-    - RightArm -> Port 15
+    - LeftArm -> Port 7
+    - RightArm -> Port 8
 - Intake
-    - IntakeMotor -> Port 16
+    - IntakeMotor -> Port 9
 ## Controls
 - Chassis -> Controller 1
     - Axis1 -> 45 degree angle movements
