@@ -12,62 +12,6 @@
 // Controller2          controller                    
 // RightElevatorMotor   motor         8               
 // ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// LeftBackMotor        motor         1               
-// LeftFrontMotor       motor         2               
-// RightBackMotor       motor         3               
-// RightFrontMotor      motor         4               
-// LeftElevatorMotor    motor         5               
-// LeftArm              motor         6               
-// RightArm             motor         7               
-// Controller1          controller                    
-// Controller2          controller                    
-// RightElevatorMotor   motor         13              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// LeftBackMotor        motor         1               
-// LeftFrontMotor       motor         2               
-// RightBackMotor       motor         3               
-// RightFrontMotor      motor         4               
-// LeftElevatorMotor    motor         5               
-// LeftArm              motor         6               
-// RightArm             motor         15              
-// Controller1          controller                    
-// Controller2          controller                    
-// RightElevatorMotor   motor         13              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// LeftBackMotor        motor         1               
-// LeftFrontMotor       motor         2               
-// RightBackMotor       motor         3               
-// RightFrontMotor      motor         4               
-// LeftElevatorMotor    motor         5               
-// LeftArm              motor         14              
-// RightArm             motor         15              
-// Controller1          controller                    
-// Controller2          controller                    
-// RightElevatorMotor   motor         13              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// LeftBackMotor        motor         1               
-// LeftFrontMotor       motor         2               
-// RightBackMotor       motor         3               
-// RightFrontMotor      motor         4               
-// LeftElevatorMotor    motor         12              
-// LeftArm              motor         14              
-// RightArm             motor         15              
-// Controller1          controller                    
-// Controller2          controller                    
-// RightElevatorMotor   motor         13              
-// ---- END VEXCODE CONFIGURED DEVICES ----
 
 
 #include "vex.h"
@@ -162,10 +106,10 @@ void usercontrol(void) {
 
     // Now to Consider rotation
     // Naively add the rotational axis
-    front_left = front_left + Controller1.Axis1.position(pct);
-    back_left = back_left + Controller1.Axis1.position(pct);
-    front_right = front_right - Controller1.Axis1.position(pct);
-    back_right = back_right - Controller1.Axis1.position(pct);
+    front_left = front_left - Controller1.Axis1.position(pct);
+    back_left = back_left - Controller1.Axis1.position(pct);
+    front_right = front_right + Controller1.Axis1.position(pct);
+    back_right = back_right + Controller1.Axis1.position(pct);
 
     // What is the largest sum, or is 100 larger?
     max_raw_sum = std::max(fabs(front_left), std::max(fabs(back_left), std::max(fabs(front_right), std::max(fabs(back_right), 100.0))));
