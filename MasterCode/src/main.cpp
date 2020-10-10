@@ -21,6 +21,31 @@ using namespace vex;
 // A global instance of competition
 competition Competition;
 
+//Run motors
+void runMotors(double velocity){
+  LeftBackMotor.setVelocity(-velocity, percent);
+  LeftFrontMotor.setVelocity(-velocity, percent);
+  RightBackMotor.setVelocity(velocity, percent);
+  RightFrontMotor.setVelocity(velocity, percent);
+}
+
+//Turn motors
+void turnMotors(double velocity){
+  LeftBackMotor.setVelocity(velocity, percent);
+  LeftFrontMotor.setVelocity(velocity, percent);
+  RightBackMotor.setVelocity(velocity, percent);
+  RightFrontMotor.setVelocity(velocity, percent);
+}
+
+//Stop motors
+void stopMotors(){
+  LeftBackMotor.setVelocity(0, percent);
+  LeftFrontMotor.setVelocity(0, percent);
+  RightBackMotor.setVelocity(0, percent);
+  RightFrontMotor.setVelocity(0, percent);
+}
+
+
 // define your global instances of motors and other devices here
 
 /*---------------------------------------------------------------------------*/
@@ -61,9 +86,154 @@ void autonomous(void) {
 
   if(CurrentAuton == 1) {
     // Will play Auton 1
+    // Move Forward towards Pole
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(fwd,100, velocityUnits::pct);
+    RightBackMotor.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Move Arm Up
+    LeftArm.spin(fwd,100, velocityUnits::pct);
+    RightArm.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    //Stop the Arm in position
+    LeftArm.stop(hold);
+    RightArm.stop(hold);
+    //Spin the Elevator to drop down a ball
+    LeftElevatorMotor.spin(fwd,100, velocityUnits::pct);
+    RightElevatorMotor.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Lowers Arm Down
+    LeftArm.spin(reverse,100, velocityUnits::pct);
+    RightArm.spin(reverse,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Turn Towards the middle
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(reverse,100, velocityUnits::pct);
+    RightBackMotor.spin(reverse,100 , velocityUnits::pct);
+   // Go towards the middle
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(fwd,100, velocityUnits::pct);
+    RightBackMotor.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Turn Again and make a triangle for reasons
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(reverse,100, velocityUnits::pct);
+    RightBackMotor.spin(reverse,100 , velocityUnits::pct);
+   // Go towards the middle
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(fwd,100, velocityUnits::pct);
+    RightBackMotor.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Move Arm Up
+    LeftArm.spin(fwd,100, velocityUnits::pct);
+    RightArm.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    //Stop the Arm in position
+    LeftArm.stop(hold);
+    RightArm.stop(hold);
+    //Spin the Elevator to drop down a ball
+    LeftElevatorMotor.spin(fwd,100, velocityUnits::pct);
+    RightElevatorMotor.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Lowers Arm Down
+    LeftArm.spin(reverse,100, velocityUnits::pct);
+    RightArm.spin(reverse,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Turn Again and head towards next pole
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(reverse,100, velocityUnits::pct);
+    RightBackMotor.spin(reverse,100 , velocityUnits::pct);
+   // Go towards the pole
+    LeftFrontMotor.spin(fwd,100, velocityUnits::pct);
+    LeftBackMotor.spin(fwd,100 , velocityUnits::pct);
+    RightFrontMotor.spin(fwd,100, velocityUnits::pct);
+    RightBackMotor.spin(fwd,100 , velocityUnits::pct);
+    // Move Arm Up
+    LeftArm.spin(fwd,100, velocityUnits::pct);
+    RightArm.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    //Stop the Arm in position
+    LeftArm.stop(hold);
+    RightArm.stop(hold);
+    //Spin the Elevator to drop down a ball
+    LeftElevatorMotor.spin(fwd,100, velocityUnits::pct);
+    RightElevatorMotor.spin(fwd,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+    // Lowers Arm Down
+    LeftArm.spin(reverse,100, velocityUnits::pct);
+    RightArm.spin(reverse,100 , velocityUnits::pct);
+    vex::task::sleep(1000);
+   
   }
   if(CurrentAuton == 2) {
     //Will play Auton 2
+    //Go forward at half speed for 0.25 seconds
+    runMotors(0.5);
+    vex::task::sleep(250);
+    stopMotors();
+    //Small break for motors
+    vex::task::sleep(50);
+    //Run intake/elevator motors for half a second
+    LeftElevatorMotor.setVelocity(0.75, percent);
+    RightElevatorMotor.setVelocity(0.75, percent);
+    vex::task::sleep(500);
+    LeftElevatorMotor.setVelocity(0, percent);
+    RightElevatorMotor.setVelocity(0, percent);
+    //Small break for motors
+    vex::task::sleep(50);
+    //Turn 45 degrees right
+    turnMotors(0.75);
+    vex::task::sleep(250);
+    //Move backwards at half speed for half a second
+    runMotors(-0.5);
+    vex::task::sleep(500);
+    stopMotors();
+    //Turn 135 degrees right
+    turnMotors(0.75);
+    vex::task::sleep(625);
+    //Go forwards at full speed for half a second
+    runMotors(1);
+    vex::task::sleep(500);
+    //Turn 90 degrees left
+    turnMotors(-0.75);
+    vex::task::sleep(500);
+    //Go forwards at half speed for 0.25 seconds
+    runMotors(0.5);
+    vex::task::sleep(250);
+    stopMotors();
+    //Small break for motors
+    vex::task::sleep(50);
+    //Reverse intake/elevator for a little over half a second (to ensure ball is out)
+    LeftElevatorMotor.setVelocity(-0.75, percent);
+    RightElevatorMotor.setVelocity(-0.75, percent);
+    vex::task::sleep(625);
+    LeftElevatorMotor.setVelocity(0, percent);
+    RightElevatorMotor.setVelocity(0, percent);
+    //Small break for motors
+    vex::task::sleep(50);
+    //Turn 90 degrees right
+    turnMotors(0.75);
+    vex::task::sleep(500);
+    //Go forwards at full speed for half a second
+    runMotors(1);
+    vex::task::sleep(500);
+    //Turn 90 degrees left
+    turnMotors(-0.75);
+    vex::task::sleep(500);
+    //Go forwards slowly while running intake
+    runMotors(0.1);
+    LeftElevatorMotor.setVelocity(0.75, percent);
+    RightElevatorMotor.setVelocity(0.75, percent);
+    vex::task::sleep(500);
+    LeftElevatorMotor.setVelocity(0, percent);
+    RightElevatorMotor.setVelocity(0, percent);
+    stopMotors();
   }
 
 }
@@ -83,6 +253,7 @@ void usercontrol(void) {
 
   while (true) {
     // Chassis
+
     // Get the raw sums of the X and Y joystick axes
     double front_left = (double)(Controller1.Axis3.position(pct) + Controller1.Axis4.position(pct));
     double back_left = (double)(Controller1.Axis3.position(pct) - Controller1.Axis4.position(pct));
@@ -126,17 +297,6 @@ void usercontrol(void) {
     RightFrontMotor.spin(fwd, front_right, velocityUnits::pct);
     RightBackMotor.spin(fwd, back_right, velocityUnits::pct);
 
-    // DEPRECATED
-    /*
-      LeftBackMotor.spin(directionType::fwd, (Controller1.Axis3.value() +
-      Controller1.Axis4.value())/2, velocityUnits::pct); //(Axis3+Axis4)/2;
-      LeftFrontMotor.spin(directionType::fwd, (Controller1.Axis3.value() +
-      Controller1.Axis4.value())/2, velocityUnits::pct); //(Axis3+Axis4)/2;
-      RightBackMotor.spin(directionType::fwd, (Controller1.Axis3.value() -
-      Controller1.Axis4.value())/2, velocityUnits::pct);//(Axis3-Axis4)/2;
-      RightFrontMotor.spin(directionType::fwd, (Controller1.Axis3.value() -
-      Controller1.Axis4.value())/2, velocityUnits::pct);//(Axis3-Axis4)/2;
-    */
     // Arm
     int armSpeedPCT = 50;
 
@@ -153,53 +313,7 @@ void usercontrol(void) {
 
     
   } 
-  // CURRENTLY NOT BEING USED
-
-  // User control code here, inside the loop
-
-  // Prevents drifting
-  /*int threshold = 10;
-
-  while (1) {
-    if(abs(Controller1.Axis1.position(percent)) < threshold){
-      if(abs(Controller1.Axis3.position(percent)) > threshold && abs(Controller1.Axis4.position(percent)) < threshold + 1){
-        //Move forwards/backwards
-        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-        RightFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-        LeftBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
-        RightBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
-      }
-      if(abs(Controller1.Axis3.position(percent)) < threshold + 1 && abs(Controller1.Axis4.position(percent)) > threshold){
-        //Move left/right
-        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-        RightFrontMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
-        LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-        RightBackMotor.setVelocity(-Controller1.Axis3.position(percent), percent);
-      }
-      if((Controller1.Axis3.position(percent) > threshold && Controller1.Axis4.position(percent) > threshold) || (Controller1.Axis3.position(percent) < -threshold && Controller1.Axis4.position(percent) < -threshold)){
-        //Move diagonally (up and right or down and left)
-        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-        LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-      }
-      if((Controller1.Axis3.position(percent) > threshold && Controller1.Axis4.position(percent) < -threshold) || (Controller1.Axis3.position(percent) < -threshold && Controller1.Axis4.position(percent) > threshold)){
-        //Move diagonally (up and left or down and right)
-        LeftFrontMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-        LeftBackMotor.setVelocity(Controller1.Axis3.position(percent), percent);
-      }
-    } else {
-      LeftFrontMotor.setVelocity(Controller1.Axis1.position(percent), percent);
-      RightFrontMotor.setVelocity(Controller1.Axis1.position(percent), percent);
-      LeftBackMotor.setVelocity(Controller1.Axis1.position(percent), percent);
-      RightBackMotor.setVelocity(Controller1.Axis1.position(percent), percent);
-    }
-    
-
-    wait(threshold, msec); // Sleep the task for a short amount of time to prevent wasted resources.
-    
-  }
-
-  */
-
+  
   //Elevator
   if (Controller1.ButtonR1.pressing() == true){
       LeftElevatorMotor.spin(forward, 100, percent);
