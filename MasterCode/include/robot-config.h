@@ -7,12 +7,12 @@ extern motor LeftBackMotor;
 extern motor LeftFrontMotor;
 extern motor RightBackMotor;
 extern motor RightFrontMotor;
-extern motor LeftElevatorMotor;
+extern motor ElevatorMotor;
 extern motor LeftArm;
 extern motor RightArm;
 extern controller Controller1;
 extern controller Controller2;
-extern motor RightElevatorMotor;
+extern motor IntakeMotor;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

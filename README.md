@@ -13,8 +13,8 @@ A guide to VEX team 2337B's code. We separated our code into various folders wit
     - RightBackMotor -> Port 3
     - RightFrontMotor -> Port 4
 - Intake/Elevator
-    - LeftElevatorMotor -> Port 5
-    - RightElevatorMotor -> Port 8
+    - ElevatorMotor -> Port 5
+    - IntakeMotor -> Port 8
 - Arm
     - LeftArm -> Port 6
     - RightArm -> Port 7

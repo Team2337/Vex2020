@@ -1,3 +1,17 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// ElevatorMotor        motor         5               
+// Controller1          controller                    
+// IntakeMotor          motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// ElevatorMotor        motor         5               
+// Controller1          controller                    
+// RightElevatorMotor   motor         6               
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -79,20 +93,20 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     if (Controller1.ButtonA.pressing() == true){
-      LeftElevatorMotor.spin(forward, 100, percent);
-      RightElevatorMotor.spin(forward, 100, percent);
+      ElevatorMotor.spin(forward, 100, percent);
+      IntakeMotor.spin(forward, 100, percent);
     }
      else {
-      LeftElevatorMotor.spin(forward, 0, percent);
-      RightElevatorMotor.spin(forward, 0, percent);
+      ElevatorMotor.spin(forward, 0, percent);
+      IntakeMotor.spin(forward, 0, percent);
     }
      if (Controller1.ButtonB.pressing() == true){
-      LeftElevatorMotor.spin(reverse, 100, percent);
-      RightElevatorMotor.spin(reverse, 100, percent);
+      ElevatorMotor.spin(reverse, 100, percent);
+      IntakeMotor.spin(reverse, 100, percent);
     }
      else {
-      LeftElevatorMotor.spin(reverse, 0, percent);
-      RightElevatorMotor.spin(reverse, 0, percent);
+      ElevatorMotor.spin(reverse, 0, percent);
+      IntakeMotor.spin(reverse, 0, percent);
     }
 
     // ........................................................................
