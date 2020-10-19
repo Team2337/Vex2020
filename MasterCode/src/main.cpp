@@ -300,10 +300,10 @@ void usercontrol(void) {
     // Arm
     int armSpeedPCT = 50;
 
-    if (Controller1.ButtonUp.pressing()) {
+    if (Controller1.ButtonUp.pressing() && !Controller1.ButtonDown.pressing()) {
       LeftArm.spin(directionType::fwd, armSpeedPCT, velocityUnits::pct);
       RightArm.spin(directionType::fwd, armSpeedPCT, velocityUnits::pct);
-    } else if(Controller1.ButtonDown.pressing()) {
+    } else if(Controller1.ButtonDown.pressing() && !Controller1.ButtonUp.pressing()) {
       LeftArm.spin(directionType::rev, armSpeedPCT, velocityUnits::pct);
       RightArm.spin(directionType::rev, armSpeedPCT, velocityUnits::pct);
     } else {
@@ -315,22 +315,17 @@ void usercontrol(void) {
   } 
   
   //Elevator and Intake
-  if (Controller1.ButtonR1.pressing() == true){
-      LeftElevatorMotor.spin(forward, 100, percent);
-      RightElevatorMotor.spin(forward, 100, percent);
-    }
-     else {
-      LeftElevatorMotor.spin(forward, 0, percent);
-      RightElevatorMotor.spin(forward, 0, percent);
-    }
-     if (Controller1.ButtonR2.pressing() == true){
-      LeftElevatorMotor.spin(reverse, 100, percent);
-      RightElevatorMotor.spin(reverse, 100, percent);
-    }
-     else {
-      LeftElevatorMotor.spin(reverse, 0, percent);
-      RightElevatorMotor.spin(reverse, 0, percent);
-    }
+  //Elevator/Intake WILL NOT MOVE if both buttons are being pressed
+  if (Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing()){
+    LeftElevatorMotor.spin(forward, 100, percent);
+    RightElevatorMotor.spin(forward, 100, percent);
+  } else if (Controller1.ButtonR2.pressing() && !Controller1.ButtonR1.pressing()){
+    LeftElevatorMotor.spin(reverse, 100, percent);
+    RightElevatorMotor.spin(reverse, 100, percent);
+  } else {
+    LeftElevatorMotor.spin(reverse, 0, percent);
+    RightElevatorMotor.spin(reverse, 0, percent);
+  }
 
 }
 
