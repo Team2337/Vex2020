@@ -5,6 +5,34 @@
 // LeftFrontMotor       motor         2               
 // RightBackMotor       motor         3               
 // RightFrontMotor      motor         4               
+// LeftElevatorMotor    motor         5               
+// LeftArm              motor         6               
+// RightArm             motor         7               
+// Controller1          controller                    
+// Controller2          controller                    
+// RightElevatorMotor   motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftBackMotor        motor         1               
+// LeftFrontMotor       motor         2               
+// RightBackMotor       motor         3               
+// RightFrontMotor      motor         4               
+// LeftElevatorMotor    motor         5               
+// LeftArm              motor         6               
+// RightArm             motor         7               
+// Controller1          controller                    
+// Controller2          controller                    
+// IntakeMotor          motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftBackMotor        motor         1               
+// LeftFrontMotor       motor         2               
+// RightBackMotor       motor         3               
+// RightFrontMotor      motor         4               
 // ElevatorMotor        motor         5               
 // LeftArm              motor         6               
 // RightArm             motor         7               
@@ -156,8 +184,8 @@ void autonomous(void) {
     LeftArm.stop(hold);
     RightArm.stop(hold);
     //Spin the Elevator to drop down a ball
-    ElevatorMotor.spin(fwd,100, velocityUnits::pct);
-    IntakeMotor.spin(fwd,100 , velocityUnits::pct);
+    LeftElevatorMotor.spin(fwd,100, velocityUnits::pct);
+    RightElevatorMotor.spin(fwd,100 , velocityUnits::pct);
     vex::task::sleep(1000);
     // Lowers Arm Down
     LeftArm.spin(reverse,100, velocityUnits::pct);
@@ -193,8 +221,8 @@ void autonomous(void) {
     LeftArm.stop(hold);
     RightArm.stop(hold);
     //Spin the Elevator to drop down a ball
-    ElevatorMotor.spin(fwd,100, velocityUnits::pct);
-    IntakeMotor.spin(fwd,100 , velocityUnits::pct);
+    LeftElevatorMotor.spin(fwd,100, velocityUnits::pct);
+    RightElevatorMotor.spin(fwd,100 , velocityUnits::pct);
     vex::task::sleep(1000);
     // Lowers Arm Down
     LeftArm.spin(reverse,100, velocityUnits::pct);
@@ -218,8 +246,8 @@ void autonomous(void) {
     LeftArm.stop(hold);
     RightArm.stop(hold);
     //Spin the Elevator to drop down a ball
-    ElevatorMotor.spin(fwd,100, velocityUnits::pct);
-    IntakeMotor.spin(fwd,100 , velocityUnits::pct);
+    LeftElevatorMotor.spin(fwd,100, velocityUnits::pct);
+    RightElevatorMotor.spin(fwd,100 , velocityUnits::pct);
     vex::task::sleep(1000);
     // Lowers Arm Down
     LeftArm.spin(reverse,100, velocityUnits::pct);
@@ -236,11 +264,11 @@ void autonomous(void) {
     //Small break for motors
     vex::task::sleep(50);
     //Run intake/elevator motors for half a second
-    ElevatorMotor.setVelocity(0.75, percent);
-    IntakeMotor.setVelocity(0.75, percent);
+    LeftElevatorMotor.setVelocity(0.75, percent);
+    RightElevatorMotor.setVelocity(0.75, percent);
     vex::task::sleep(500);
-    ElevatorMotor.setVelocity(0, percent);
-    IntakeMotor.setVelocity(0, percent);
+    LeftElevatorMotor.setVelocity(0, percent);
+    RightElevatorMotor.setVelocity(0, percent);
     //Small break for motors
     vex::task::sleep(50);
     //Turn 45 degrees right
@@ -266,11 +294,11 @@ void autonomous(void) {
     //Small break for motors
     vex::task::sleep(50);
     //Reverse intake/elevator for a little over half a second (to ensure ball is out)
-    ElevatorMotor.setVelocity(-0.75, percent);
-    IntakeMotor.setVelocity(-0.75, percent);
+    LeftElevatorMotor.setVelocity(-0.75, percent);
+    RightElevatorMotor.setVelocity(-0.75, percent);
     vex::task::sleep(625);
-    ElevatorMotor.setVelocity(0, percent);
-    IntakeMotor.setVelocity(0, percent);
+    LeftElevatorMotor.setVelocity(0, percent);
+    RightElevatorMotor.setVelocity(0, percent);
     //Small break for motors
     vex::task::sleep(50);
     //Turn 90 degrees right
@@ -284,11 +312,11 @@ void autonomous(void) {
     vex::task::sleep(500);
     //Go forwards slowly while running intake
     runMotors(0.1);
-    ElevatorMotor.setVelocity(0.75, percent);
-    IntakeMotor.setVelocity(0.75, percent);
+    LeftElevatorMotor.setVelocity(0.75, percent);
+    RightElevatorMotor.setVelocity(0.75, percent);
     vex::task::sleep(500);
-    ElevatorMotor.setVelocity(0, percent);
-    IntakeMotor.setVelocity(0, percent);
+    LeftElevatorMotor.setVelocity(0, percent);
+    RightElevatorMotor.setVelocity(0, percent);
     stopMotors();
   }
 
@@ -372,20 +400,20 @@ void usercontrol(void) {
   
   //Elevator and Intake
   if (Controller1.ButtonR1.pressing() == true){
-      ElevatorMotor.spin(forward, 100, percent);
-      IntakeMotor.spin(forward, 100, percent);
+      LeftElevatorMotor.spin(forward, 100, percent);
+      RightElevatorMotor.spin(forward, 100, percent);
     }
      else {
-      ElevatorMotor.spin(forward, 0, percent);
-      IntakeMotor.spin(forward, 0, percent);
+      LeftElevatorMotor.spin(forward, 0, percent);
+      RightElevatorMotor.spin(forward, 0, percent);
     }
      if (Controller1.ButtonR2.pressing() == true){
-      ElevatorMotor.spin(reverse, 100, percent);
-      IntakeMotor.spin(reverse, 100, percent);
+      LeftElevatorMotor.spin(reverse, 100, percent);
+      RightElevatorMotor.spin(reverse, 100, percent);
     }
      else {
-      ElevatorMotor.spin(reverse, 0, percent);
-      IntakeMotor.spin(reverse, 0, percent);
+      LeftElevatorMotor.spin(reverse, 0, percent);
+      RightElevatorMotor.spin(reverse, 0, percent);
     }
 
 }
